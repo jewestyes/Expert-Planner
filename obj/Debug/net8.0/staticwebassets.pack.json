@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\123.png",
+      "PackagePath": "staticwebassets\\images\\123.png"
+    },
+    {
       "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\auth_background.jpg",
       "PackagePath": "staticwebassets\\images\\auth_background.jpg"
     },
@@ -29,32 +33,40 @@
       "PackagePath": "staticwebassets\\images\\avatar.png"
     },
     {
-      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_1.png",
-      "PackagePath": "staticwebassets\\images\\icon_1.png"
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_people.png",
+      "PackagePath": "staticwebassets\\images\\icon_people.png"
     },
     {
-      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_2.png",
-      "PackagePath": "staticwebassets\\images\\icon_2.png"
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_pin.png",
+      "PackagePath": "staticwebassets\\images\\icon_pin.png"
     },
     {
-      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_3.png",
-      "PackagePath": "staticwebassets\\images\\icon_3.png"
-    },
-    {
-      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_4.png",
-      "PackagePath": "staticwebassets\\images\\icon_4.png"
-    },
-    {
-      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_5.png",
-      "PackagePath": "staticwebassets\\images\\icon_5.png"
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_plan.png",
+      "PackagePath": "staticwebassets\\images\\icon_plan.png"
     },
     {
       "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_search.png",
       "PackagePath": "staticwebassets\\images\\icon_search.png"
     },
     {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\icon_settings.png",
+      "PackagePath": "staticwebassets\\images\\icon_settings.png"
+    },
+    {
       "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\menu_logo.png",
+      "PackagePath": "staticwebassets\\images\\menu_logo.png"
+    },
+    {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\menu_logo_label.png",
+      "PackagePath": "staticwebassets\\images\\menu_logo_label.png"
+    },
+    {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\menu_logo_mini.png",
+      "PackagePath": "staticwebassets\\images\\menu_logo_mini.png"
     },
     {
       "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\js\\main_scripts.js",

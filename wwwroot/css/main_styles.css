@@ -42,11 +42,11 @@ header {
     align-items: center;
 }
 
-#user-info img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-}
+    #user-info img {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+    }
 
 nav {
     width: 70px;
@@ -58,32 +58,33 @@ nav {
     left: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 0px;
 }
 
-nav a {
-    display: flex;
-    align-items: center; 
-    text-decoration: none;
-    padding: 8px;
-}
+    nav a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 8px;
+    }
 
-nav a .label {
-    opacity: 0;
-    transition: opacity 0.3s;
-}
+        nav a .label {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-nav a:hover {
-    background-color: #555;
-}
+        nav a:hover {
+            background-color: #555;
+        }
 
-nav:hover {
-    width: 300px;
-}
+    nav:hover {
+        width: 330px;
+    }
 
-nav:hover a .label {
-    opacity: 1;
-}
+        nav:hover a .label {
+            opacity: 1;
+        }
+
 
 .input {
     width: calc(100% - 40px);
@@ -97,11 +98,28 @@ nav:hover a .label {
     height: 36px;
     padding-left: 16px;
 }
+
 .menu-icon {
     align-items: center;
-    width: 50px; 
-    height: 50px;
+    width: 45px;
+    height: 45px;
     margin-right: 16px;
+}
+
+.menu-logo {
+    align-items: center;
+    width: 310px;
+    height: 80px;
+}
+.logo-container {
+    padding-left: 12px;
+    padding-top: 6px;
+    width: 310px;
+    height: 100px;
+}
+.window-container {
+    padding-left: 345px;
+    padding-top: 12px;
 }
 
 .label {
@@ -110,18 +128,19 @@ nav:hover a .label {
     white-space: nowrap;
     color: white;
 }
-.username-label
-{
+
+.username-label {
     font-size: 16px;
     font-weight: bold;
     color: black;
     white-space: nowrap;
     padding-left: 10px;
 }
+
 .icon-search {
     display: flex;
     align-items: center;
-    width: 36px; 
+    width: 36px;
     height: 36px;
     margin-left: 36px;
 }
@@ -138,6 +157,6 @@ nav:hover a .label {
     transition: background-color 0.3s;
 }
 
-.quit-button:hover {
-    background-color: #ff000071;
-}
+    .quit-button:hover {
+        background-color: #ff000071;
+    }

@@ -142,3 +142,5 @@ C:\Users\JEWESTYES\source\repos\ExpertPlanner\obj\Debug\net8.0\ExpertPlanner.pdb
 C:\Users\JEWESTYES\source\repos\ExpertPlanner\obj\Debug\net8.0\ExpertPlanner.genruntimeconfig.cache
 C:\Users\JEWESTYES\source\repos\ExpertPlanner\obj\Debug\net8.0\ref\ExpertPlanner.dll
 C:\Users\JEWESTYES\source\repos\ExpertPlanner\bin\Debug\net8.0\appsettings.json
+C:\Users\JEWESTYES\source\repos\ExpertPlanner\obj\Debug\net8.0\ExpertPlanner.sourcelink.json
+C:\Users\JEWESTYES\source\repos\ExpertPlanner\obj\Debug\net8.0\scopedcss\Views\Shared\_NoLayout.cshtml.rz.scp.css

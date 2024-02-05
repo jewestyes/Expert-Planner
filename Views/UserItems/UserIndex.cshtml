@@ -1,14 +1,9 @@
-@using ExpertPlanner.Services
-@using Microsoft.AspNetCore.Hosting
-@using ExpertPlanner.Models;
-@Html.AntiForgeryToken()
-@model List<ApplicationUser>
-
 @{
-    ViewData["Title"] = "User Index";
+	Layout = "_Layout";
 }
 
-<h2>User List</h2>
+<div class="window-container">
+	<h2>User List</h2>
 
 <table class="table">
     <thead>
@@ -33,3 +28,4 @@
         }
     </tbody>
 </table>
+</div>

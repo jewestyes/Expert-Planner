@@ -1,15 +1,55 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ExpertPlanner</title>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@Url.Content("~/css/main_styles.css")?v=@FileVersionHelper.GetFileVersion("wwwroot/css/main_styles.css")">
 </head>
 <body>
-    @RenderBody()
 
-    @await RenderSectionAsync("Scripts", required: false)
+    <header>
+        <div id="block-search">
+            <img class="icon-search" src="@Url.Content("/images/icon_search.png")" alt="Поиск">
+            <input class="input" type="text" placeholder="Поиск">
+        </div>
+        <div id="user-info">
+            <img class="avatar-icon" src="@Url.Content("/images/avatar.png")" alt="Имя Фамилия">
+            <span class="username-label">Иван Петров</span>
+            @using (Html.BeginForm("Logout", "Authorization", FormMethod.Post))
+            {
+                <button type="submit" class="quit-button">Выйти</button>
+            }
+        </div>
+    </header>
+
+    <nav>
+        <!-- Боковая шторка-->
+        <div class="logo-container">
+            <img class="menu-logo" src="@Url.Content("/images/menu_logo.png")" alt="Лого меню">
+        </div>
+        <a href="#">
+            <img class="menu-icon" src="@Url.Content("/images/icon_people.png")" alt="График работы филдов">
+            <span class="label">График работы филдов</span>
+        </a>
+        <a href="@Url.Action("UserIndex", "UserItems")">
+            <img class="menu-icon" src="@Url.Content("/images/icon_plan.png")" alt="Планирование работ">
+            <span class="label">Планирование работ</span>
+        </a>
+        <a href="#">
+            <img class="menu-icon" src="@Url.Content("/images/icon_pin.png")" alt="Мои работы">
+            <span class="label">Мои работы</span>
+        </a>
+        <a href="#">
+            <img class="menu-icon" src="@Url.Content("/images/icon_settings.png")" alt="Редактор Учетной записи">
+            <span class="label">Редактор Учетной записи</span>
+        </a>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <script src="@Url.Content("/js/main_scripts.js")"></script>
+
 </body>
 </html>

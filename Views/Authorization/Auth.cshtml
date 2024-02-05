@@ -1,11 +1,11 @@
 @using ExpertPlanner.Services
 @using Microsoft.AspNetCore.Hosting
+@inject IWebHostEnvironment HostingEnvironment
+@inject FileVersionHelper FileVersionHelper
 
 @{
     ViewData["Title"] = "Auth Page";
 }
-@inject IWebHostEnvironment HostingEnvironment
-@inject FileVersionHelper FileVersionHelper
 
     <!DOCTYPE html>
     <html lang="en">
