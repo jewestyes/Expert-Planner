@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Rostelecom Basis Medium';
+    src: url('../fonts/rostelecombasis_medium.otf') format('otf');
+    font-style: normal;
+    font-weight: 500;
+}
+
+body {
+    background: url('../images/auth_background.jpg') center fixed;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Rostelecom Basis Medium",sans-serif;
+}
+
+.login-container {
+    padding: 80px;
+    background-color: #dbd6d6e1; 
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #f8f8f8; 
+}
+
+.logo {
+    width: 150px;  
+}
+
+.auth-title {
+    display: block;
+    font-family: "Rostelecom Basis Medium",sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #101828;
+    text-align: center;
+}
+
+.login-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    color: #000000;
+}
+
+input#username,
+input#password {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #d3c7c79a;
+    font-size: 14px;
+    font-family: "Rostelecom Basis Medium",sans-serif;
+}
+
+.remember-me {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: "Rostelecom Basis Medium",sans-serif;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.enter-button {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 16px 48px;
+    background: #ff4f12;
+    border: 1px solid #f04912;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    font-family: "Rostelecom Basis Medium",sans-serif;
+}
+
+.enter-button:hover {
+    background-color: #e07e00;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    color: #e07e00; 
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Rostelecom Basis Medium",sans-serif;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

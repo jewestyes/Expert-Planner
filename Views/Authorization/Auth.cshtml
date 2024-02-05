@@ -1,0 +1,44 @@
+@using ExpertPlanner.Services
+@using Microsoft.AspNetCore.Hosting
+
+@{
+    ViewData["Title"] = "Auth Page";
+}
+@inject IWebHostEnvironment HostingEnvironment
+@inject FileVersionHelper FileVersionHelper
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="@Url.Content("~/css/auth_styles.css")?v=@FileVersionHelper.GetFileVersion("wwwroot/css/auth_styles.css")">
+        <title>Авторизация</title>
+    </head>
+    <body>
+
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </div>
+        <h2 class="auth-title">Авторизация</h2>
+
+        @using (Html.BeginForm("Login", "Authorization", new { returnUrl = Context.Request.Query["ReturnUrl"] }, FormMethod.Post, false, null))
+        {
+            <input type="text" id="username" name="Username" required placeholder="Логин (вводить без домена)">
+            <input type="password" id="password" name="Password" required placeholder="Пароль">
+
+            <div class="remember-me">
+                <input type="checkbox" name="RememberMe" id="remember">
+                <label for="remember">Запомнить меня</label>
+            </div>
+
+            <button type="submit" class="enter-button">Войти</button>
+        }
+
+        @Html.ActionLink("Забыли свой пароль?", "RestorePassword", "ForgotPassword")
+
+    </div>
+
+</body>
+</html>

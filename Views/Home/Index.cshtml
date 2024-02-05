@@ -1,0 +1,59 @@
+﻿@using ExpertPlanner.Services
+@using Microsoft.AspNetCore.Hosting
+@Html.AntiForgeryToken()
+@{
+    ViewData["Title"] = "Home Page";
+}
+@inject IWebHostEnvironment HostingEnvironment
+@inject FileVersionHelper FileVersionHelper
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Главная страница</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/main_styles.css")?v=@FileVersionHelper.GetFileVersion("wwwroot/css/main_styles.css")">
+    </head>
+    <body>
+
+    <header>
+        <div id="block-search">
+            <img class="icon-search" src="@Url.Content("/images/icon_search.png")" alt="Иконка 1">
+            <input class="input" type="text" placeholder="Поиск">
+        </div>
+        <div id="user-info">
+            <img class="avatar-icon" src="@Url.Content("/images/avatar.png")" alt="Имя Фамилия">
+            <span class="username-label">Иван Петров</span>
+            @using (Html.BeginForm("Logout", "Authorization", FormMethod.Post))
+            {
+                <button type="submit" class="quit-button">Выйти</button>
+            }
+        </div>
+    </header>
+
+    <nav>
+        <!-- Боковая шторка-->
+        <a href="#">
+            <img class="menu-icon" src="@Url.Content("/images/icon_1.png")" alt="График работы филдов">
+            <span class="label">График работы филдов</span>
+        </a>
+        <a href="@Url.Action("UserIndex", "UserItems")">
+            <img class="menu-icon" src="@Url.Content("/images/icon_2.png")" alt="Планирование работ">
+            <span class="label">Планирование работ</span>
+        </a>
+        <a href="#">
+            <img class="menu-icon" src="@Url.Content("/images/icon_3.png")" alt="Мои работы">
+            <span class="label">Мои работы</span>
+        </a>
+        <a href="#">
+            <img class="menu-icon" src="@Url.Content("/images/icon_4.png")" alt="Редактор УЗ">
+            <span class="label">Редактор УЗ</span>
+        </a>
+    </nav>
+
+    <main>
+        <!-- Основной контент страницы -->
+    </main>
+
+    <script src="@Url.Content("/js/main_scripts.js")"></script>
+
+</body>

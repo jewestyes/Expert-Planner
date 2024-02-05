@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+}
+
+#block-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    background: 0 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 11px 100px 11px;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    padding-left: 40px;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+}
+
+#user-info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+nav {
+    width: 70px;
+    height: 100%;
+    background-color: #1c2840;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+nav a {
+    display: flex;
+    align-items: center; 
+    text-decoration: none;
+    padding: 8px;
+}
+
+nav a .label {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+nav:hover {
+    width: 300px;
+}
+
+nav:hover a .label {
+    opacity: 1;
+}
+
+.input {
+    width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    border: 0;
+    background: 0 0;
+    color: #101828;
+    font-size: 16px;
+    line-height: 12px;
+    height: 36px;
+    padding-left: 16px;
+}
+.menu-icon {
+    align-items: center;
+    width: 50px; 
+    height: 50px;
+    margin-right: 16px;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: white;
+}
+.username-label
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+.icon-search {
+    display: flex;
+    align-items: center;
+    width: 36px; 
+    height: 36px;
+    margin-left: 36px;
+}
+
+.quit-button {
+    background-color: #dfdbdb;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 32px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quit-button:hover {
+    background-color: #ff000071;
+}
