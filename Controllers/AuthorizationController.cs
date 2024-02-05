@@ -1,75 +1,42 @@
-﻿using ExpertPlanner.Controllers;
-using ExpertPlanner.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using System.Threading.Tasks;
+using ExpertPlanner.Models;
 
 public class AuthorizationController : Controller
 {
-    private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly ILogger<HomeController> _logger;
+    private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AuthorizationController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, ILogger<HomeController> logger)
+    public AuthorizationController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
     {
-        _signInManager = signInManager;
         _userManager = userManager;
-        _logger = logger;
+        _signInManager = signInManager;
     }
 
+    [HttpGet]
     public IActionResult Auth()
     {
         return View();
     }
 
     [HttpPost]
-    [AllowAnonymous]
-    public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+    public async Task<IActionResult> Login(LoginViewModel model)
     {
         if (ModelState.IsValid)
         {
+            var user = await _userManager.FindByNameAsync(model.Username)
+           ?? await _userManager.FindByEmailAsync(model.Username);
 
-            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
-            if (result.Succeeded)
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                _logger.LogInformation("User logged in.");
+                await _signInManager.SignInAsync(user, model.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                _logger.LogInformation($"Login failed. Error: {result}");
-            }
 
+            ModelState.AddModelError(string.Empty, "Неверный логин или пароль");
         }
-        else
-        {
-            _logger.LogInformation($"INVALID STATE");
 
-        }
-        return RedirectToAction("Auth");
-    }
-
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Logout()
-    {
-        await _signInManager.SignOutAsync();
-        _logger.LogInformation("User logged out.");
-
-        return RedirectToAction("Index", "Home");
-    }
-
-    private IActionResult RedirectToLocal(string returnUrl)
-    {
-        if (Url.IsLocalUrl(returnUrl))
-        {
-            return Redirect(returnUrl);
-        }
-        else
-        {
-            return RedirectToAction(nameof(HomeController.Index), "Home");
-        }
+        return View("Auth", model);
     }
 }

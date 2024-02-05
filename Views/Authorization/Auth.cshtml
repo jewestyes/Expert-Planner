@@ -3,19 +3,21 @@
 @inject IWebHostEnvironment HostingEnvironment
 @inject FileVersionHelper FileVersionHelper
 
+@model ExpertPlanner.Models.LoginViewModel
+
 @{
     ViewData["Title"] = "Auth Page";
 }
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="@Url.Content("~/css/auth_styles.css")?v=@FileVersionHelper.GetFileVersion("wwwroot/css/auth_styles.css")">
-        <title>Авторизация</title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@Url.Content("~/css/auth_styles.css")?v=@FileVersionHelper.GetFileVersion("wwwroot/css/auth_styles.css")">
+    <title>Авторизация</title>
+</head>
+<body>
 
     <div class="login-container">
         <div class="logo-container">

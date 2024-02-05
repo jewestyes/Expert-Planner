@@ -4,11 +4,11 @@ namespace ExpertPlanner.Models
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Поле 'Логин' обязательно для заполнения")]
         [Display(Name = "Логин")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле 'Пароль' обязательно для заполнения")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
