@@ -1,5 +1,4 @@
 ﻿using ExpertPlanner.Models;
-using ExpertPlanner.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -24,18 +23,19 @@ public class Startup
 
         services.AddControllersWithViews();
         services.AddRazorPages();
-
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
-
-
+        services.AddSession();
+        services.AddAntiforgery(options =>
+        {
+            options.HeaderName = "X-CSRF-TOKEN";
+        });
         services.AddIdentity<ApplicationUser, IdentityRole>(ConfigureIdentityOptions)
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddUserManager<UserManager<ApplicationUser>>()
     .AddUserStore<UserStore<ApplicationUser, IdentityRole, ApplicationDbContext, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityUserToken<string>, IdentityRoleClaim<string>>>();
 
-        services.AddTransient<FileVersionHelper>();
     }
 
 
@@ -55,7 +55,7 @@ public class Startup
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
+        app.UseSession();
         app.UseRouting();
 
         app.UseAuthentication();
@@ -101,7 +101,6 @@ public class Startup
             endpoints.MapRazorPages();
         });
 
-        // Вызываем сидер после применения миграций
         using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
         {
             var userManager = serviceScope.ServiceProvider.GetService<UserManager<ApplicationUser>>();

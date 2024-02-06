@@ -1,8 +1,3 @@
-@using ExpertPlanner.Services
-@using Microsoft.AspNetCore.Hosting
-@inject IWebHostEnvironment HostingEnvironment
-@inject FileVersionHelper FileVersionHelper
-
 @model ExpertPlanner.Models.LoginViewModel
 
 @{
@@ -14,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="@Url.Content("~/css/auth_styles.css")?v=@FileVersionHelper.GetFileVersion("wwwroot/css/auth_styles.css")">
+    <link rel="stylesheet" href="~/css/auth_styles.css" asp-append-version="true">
     <title>Авторизация</title>
 </head>
 <body>
@@ -25,8 +20,9 @@
         </div>
         <h2 class="auth-title">Авторизация</h2>
 
-        @using (Html.BeginForm("Login", "Authorization", new { returnUrl = Context.Request.Query["ReturnUrl"] }, FormMethod.Post, false, null))
+        @using (Html.BeginForm("Login", "Authorization", new { returnUrl = Url.Action("Index", "Home") }, FormMethod.Post, false, null))
         {
+            @Html.AntiForgeryToken()
             <input type="text" id="username" name="Username" required placeholder="Логин (вводить без домена)">
             <input type="password" id="password" name="Password" required placeholder="Пароль">
 
@@ -38,7 +34,7 @@
             <button type="submit" class="enter-button">Войти</button>
         }
 
-        @Html.ActionLink("Забыли свой пароль?", "RestorePassword", "ForgotPassword")
+        @Html.ActionLink("Забыли свой пароль?", "RestorePassword", "ForgotPassword");
 
     </div>
 

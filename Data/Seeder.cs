@@ -21,29 +21,14 @@ public static class DbSeeder
         {
             var passwordHasher = new PasswordHasher<ApplicationUser>();
 
-            var adminUser = new ApplicationUser
-            {
-                UserName = "admin",
-                NormalizedUserName = "admin",
-                Email = "admin@example.com",
-                NormalizedEmail = "admin@example.com",
-                Role = UserRole.Admin,
-                FirstName = "Вадим",
-                MiddleName = "Дроздов",
-                LastName = "Эдуардович",
-                Position = Position.Senior,
-                City = "Москва",
-                PasswordHash = passwordHasher.HashPassword(null, "test@123") // Генерация хеша пароля
-            };
+            ApplicationUser[] users = {
+                new ApplicationUser { UserName = "admin", NormalizedUserName = "admin", Email = "admin@example.com", NormalizedEmail = "admin@example.com", Role = UserRole.Admin, FirstName = "Вадим", MiddleName = "Дроздов", LastName = "Эдуардович", Position = Position.Senior, City = "Москва", PasswordHash = passwordHasher.HashPassword(null, "admin@123") },
+                new ApplicationUser{UserName = "user",NormalizedUserName = "user", Email = "user@example.com",NormalizedEmail = "user@example.com",Role = UserRole.RegularUser,FirstName = "Роберт",MiddleName = "Мубаракшин",LastName = "Эдуардович",Position = Position.Intern,City = "Москва",PasswordHash = passwordHasher.HashPassword(null, "user@123") },
+                new ApplicationUser{UserName = "test",NormalizedUserName = "test",Email = "test@example.com",NormalizedEmail = "test@example.com",Role = UserRole.RegularUser,FirstName = "Егор",MiddleName = "Лукьянов",LastName = "Эдуардович",Position = Position.Middle,City = "Москва",PasswordHash = passwordHasher.HashPassword(null, "test@123") } };
 
-            await userManager.CreateAsync(adminUser);
-
-            var users = context.Users.ToList();
             foreach (var user in users)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"User Id: {user.Id}, UserName: {user.UserName}, Email: {user.Email}, FirstName: {user.FirstName}, LastName: {user.LastName}");
-            }
+                await userManager.CreateAsync(user);
+
         }
         catch (Exception ex)
         {

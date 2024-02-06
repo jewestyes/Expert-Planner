@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertPlanner.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240205233023_update")]
-    partial class update
+    [Migration("20240206190939_newUsers")]
+    partial class newUsers
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
