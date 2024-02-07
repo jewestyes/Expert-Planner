@@ -1,8 +1,11 @@
 ﻿using ExpertPlanner.Models;
+using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,18 +20,37 @@ public class Startup
         _configuration = configuration;
     }
 
+
     public void ConfigureServices(IServiceCollection services)
     {
         ConfigureLogging(services);
 
-        services.AddControllersWithViews();
+
         services.AddRazorPages();
+
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
+
         services.AddSession();
+
         services.AddAntiforgery(options =>
         {
+
             options.HeaderName = "X-CSRF-TOKEN";
+            options.Cookie.Name = "Z-XSRF-COOKIE";
+            options.FormFieldName = "Y-XSRF-TOKEN";
+        });
+        services.AddAuthentication("CookieAuthScheme")
+            .AddCookie("CookieAuthScheme", options =>
+    {
+        options.LoginPath = "/Authorization/Auth";
+    });
+
+        services.AddAuthorization(options =>
+        {
+            options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
         });
         services.AddIdentity<ApplicationUser, IdentityRole>(ConfigureIdentityOptions)
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -44,7 +66,6 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-
             ApplyMigrations(app);
         }
         else
@@ -57,12 +78,14 @@ public class Startup
         app.UseStaticFiles();
         app.UseSession();
         app.UseRouting();
+        app.UseAntiforgery();
 
         app.UseAuthentication();
         app.UseAuthorization();
 
         ConfigureEndpoints(app);
     }
+
 
     private void ConfigureLogging(IServiceCollection services)
     {
