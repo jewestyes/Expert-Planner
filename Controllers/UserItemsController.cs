@@ -20,7 +20,6 @@ public class UserItemsController : Controller
         _context = context;
     }
 
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UserIndex()
     {
         var users = await _context.Users.ToListAsync();

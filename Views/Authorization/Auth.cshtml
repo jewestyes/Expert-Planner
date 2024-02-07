@@ -1,5 +1,4 @@
 @model ExpertPlanner.Models.LoginViewModel
-
 @{
     ViewData["Title"] = "Auth Page";
 }
@@ -20,7 +19,7 @@
         </div>
         <h2 class="auth-title">Авторизация</h2>
 
-        @using (Html.BeginForm("Login", "Authorization", new { returnUrl = Url.Action("Index", "Home") }, FormMethod.Post, false, null))
+        @using (Html.BeginForm("Login", "Authorization", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <input type="text" id="username" name="Username" required placeholder="Логин (вводить без домена)">
