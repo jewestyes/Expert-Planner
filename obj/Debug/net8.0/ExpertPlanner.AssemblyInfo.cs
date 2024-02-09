@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpertPlanner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e99ac9a6730c382e8713ee7462fb03da7c8828d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90401b97de35d96e97dbbc4a1438520bf8ed3454")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpertPlanner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpertPlanner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,55 +9,55 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ExpertPlanner
 build_property.RootNamespace = ExpertPlanner
-build_property.ProjectDir = C:\Users\JEWESTYES\source\repos\ExpertPlanner\
+build_property.ProjectDir = D:\Github\Expert-Planner\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\JEWESTYES\source\repos\ExpertPlanner
+build_property.MSBuildProjectDirectory = D:\Github\Expert-Planner
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/Authorization/Auth.cshtml]
+[D:/Github/Expert-Planner/Views/Authorization/Auth.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yaXphdGlvblxBdXRoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/ForgotPassword/RestorePassword.cshtml]
+[D:/Github/Expert-Planner/Views/ForgotPassword/RestorePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yZ290UGFzc3dvcmRcUmVzdG9yZVBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/Home/Index.cshtml]
+[D:/Github/Expert-Planner/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/Shared/Error.cshtml]
+[D:/Github/Expert-Planner/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Github/Expert-Planner/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/UserItems/UserIndex.cshtml]
+[D:/Github/Expert-Planner/Views/UserItems/UserIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckl0ZW1zXFVzZXJJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/UserItems/ViewStart.cshtml]
+[D:/Github/Expert-Planner/Views/UserItems/ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckl0ZW1zXFZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/_ViewImports.cshtml]
+[D:/Github/Expert-Planner/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/_ViewStart.cshtml]
+[D:/Github/Expert-Planner/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/Shared/_Layout.cshtml]
+[D:/Github/Expert-Planner/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ffcktxdaed
 
-[C:/Users/JEWESTYES/source/repos/ExpertPlanner/Views/Shared/_NoLayout.cshtml]
+[D:/Github/Expert-Planner/Views/Shared/_NoLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-7as2cu05f8

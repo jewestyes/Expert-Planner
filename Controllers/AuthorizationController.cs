@@ -36,13 +36,14 @@ public class AuthorizationController : Controller
 
             var cookieOptions = new CookieOptions
             {
-                Expires = DateTime.Now.AddDays(1),
+                Expires = model.RememberMe ? DateTime.Now.AddDays(30) : DateTime.Now.AddDays(1),
                 HttpOnly = true
             };
             var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
             HttpContext.Session.SetString("CSRFToken", tokens.RequestToken);
 
             Response.Cookies.Append("MyCookieName", "MyCookieValue", cookieOptions);
+            Response.Cookies.Append("RememberMe", model.RememberMe.ToString(), cookieOptions);
 
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
@@ -50,6 +51,7 @@ public class AuthorizationController : Controller
 
                 _logger.LogInformation("CSRF token saved to session: {CSRFToken}", tokens.RequestToken);
 
+                TempData["UserFullName"] = $"{user.FirstName} {user.MiddleName}";
                 return RedirectToAction("Index", "Home");
             }
 
