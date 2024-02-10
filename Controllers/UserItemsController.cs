@@ -1,43 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ExpertPlanner.Models;
 using Microsoft.EntityFrameworkCore;
+using ExpertPlanner.Services;
 
 public class UserItemsController : Controller
 {
-    private readonly ApplicationDbContext _context;
-    public List<TableDataModel> tables = new List<TableDataModel>();
-
-    public UserItemsController(ApplicationDbContext context)
+    private readonly DatabaseService _databaseService;
+    public UserItemsController(DatabaseService databaseService)
     {
-        _context = context;
+        _databaseService = databaseService;
     }
 
-    public async Task<ActionResult> UserIndex(string? weekNumber)
+    public IActionResult UserIndex()
     {
-        if (string.IsNullOrEmpty(weekNumber))
-            weekNumber = GetWeekNumber(DateTime.Now);
-
-        if (!tables.Any(t => t.WeekDate == weekNumber))
-        {
-            var tableData = new TableDataModel
-            {
-                WeekDate = weekNumber,
-                Employees = await LoadEmployeesData()
-            };
-
-            tables.Add(tableData);
-        }
-
-        var table = tables.FirstOrDefault(t => t.WeekDate == weekNumber);
-        return View(table);
+        var tableNames = _databaseService.GetTableNames();
+        return View(tableNames);
     }
 
-    private async Task<List<ApplicationUser>> LoadEmployeesData()
+    public IActionResult Details(string tableName)
     {
-        var users = await _context.Users.ToListAsync();
-        return users;
+        var data = _databaseService.GetDataFromTable(tableName);
+        return PartialView("~/Views/UserItems/_TableDetails.cshtml", data);
     }
-
     private string GetWeekNumber(DateTime date)
     {
         return $"{date.AddDays(-(int)date.DayOfWeek + (int)DayOfWeek.Monday):dd-MM-yyyy}";

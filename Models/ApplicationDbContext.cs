@@ -10,6 +10,9 @@ namespace ExpertPlanner.Models
     {
         public DbSet<Group> Groups { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
+        public DbSet<UserItemViewModel> GrafikTables { get; set; }
+
+        public DbSet<DefaultTable> DefaultTables { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
@@ -18,6 +21,7 @@ namespace ExpertPlanner.Models
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<UserItemViewModel>().HasNoKey();
             modelBuilder.Entity<ApplicationUser>().ToTable("ApplicationUsers");
         }
     }

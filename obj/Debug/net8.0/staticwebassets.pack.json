@@ -77,6 +77,10 @@
       "PackagePath": "staticwebassets\\js\\main_scripts.js"
     },
     {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\js\\userItems.js",
+      "PackagePath": "staticwebassets\\js\\userItems.js"
+    },
+    {
       "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

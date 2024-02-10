@@ -1,0 +1,29 @@
+﻿@model List<ExpertPlanner.Models.DefaultTable>
+
+<h1>Details for Table</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>MiddleName</th>
+            <th>LastName</th>
+            <th>Link</th>
+            <th>Position</th>
+            <!-- Добавьте заголовки для других столбцов по аналогии -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.MiddleName</td>
+                <td>@item.LastName</td>
+                <td>@item.Link</td>
+                <td>@item.Position</td>
+                <!-- Добавьте другие свойства по аналогии -->
+            </tr>
+        }
+    </tbody>
+</table>

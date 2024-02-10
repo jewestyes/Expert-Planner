@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/LqCc1C1Ez1eIz9O+/LD+CoPZYYLRQbfgcGArsK73q8=",
+  "Hash": "gAiRIKO4p78UeacYX1jn8buiMUaJwNBQvd7z5CGQAe4=",
   "Source": "ExpertPlanner",
   "BasePath": "_content/ExpertPlanner",
   "Mode": "Default",
@@ -395,6 +395,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\main_scripts.js"
+    },
+    {
+      "Identity": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\js\\userItems.js",
+      "SourceId": "ExpertPlanner",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\",
+      "BasePath": "_content/ExpertPlanner",
+      "RelativePath": "js/userItems.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\userItems.js"
     },
     {
       "Identity": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

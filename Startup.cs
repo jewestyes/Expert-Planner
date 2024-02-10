@@ -1,4 +1,5 @@
 ﻿using ExpertPlanner.Models;
+using ExpertPlanner.Services;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -25,9 +26,9 @@ public class Startup
     {
         ConfigureLogging(services);
 
-
         services.AddRazorPages();
         services.AddMvc();
+        services.AddScoped<DatabaseService>();
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
         services.AddSession();
@@ -58,9 +59,24 @@ public class Startup
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddUserManager<UserManager<ApplicationUser>>()
-    .AddUserStore<UserStore<ApplicationUser, IdentityRole, ApplicationDbContext, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityUserToken<string>, IdentityRoleClaim<string>>>();
+    .AddUserStore<UserStore
+    <ApplicationUser, IdentityRole,
+    ApplicationDbContext, string,
+    IdentityUserClaim<string>, IdentityUserRole<string>,
+    IdentityUserLogin<string>, IdentityUserToken<string>,
+    IdentityRoleClaim<string>>>();
+        
     }
 
+
+    private void ApplyMigrations(IApplicationBuilder app)
+    {
+        using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+        {
+            var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+            context.Database.Migrate();
+        }
+    }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
@@ -106,14 +122,6 @@ public class Startup
         options.Password.RequireNonAlphanumeric = false;
     }
 
-    private void ApplyMigrations(IApplicationBuilder app)
-    {
-        using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-        {
-            var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-            context.Database.Migrate();
-        }
-    }
 
     private void ConfigureEndpoints(IApplicationBuilder app)
     {

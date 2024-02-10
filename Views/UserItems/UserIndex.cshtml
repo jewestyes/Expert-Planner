@@ -1,62 +1,19 @@
-@{
-    Layout = "_Layout";
-}
-@model ExpertPlanner.Models.TableDataModel
+@model List<string>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/table_styles.css" asp-append-version="true">
-    <title>График работы</title>
-</head>
+<h1>Tables starting with "Grafik":</h1>
 
-<body class="no-nav-hover">
-    <div class="container">
-        <div class="table_container">
-            <table border="1">
-                <table border="1">
-                    <tr>
-                        <th>ФИО</th>
-                        <th>Ссылка</th>
-                        <th>Должность</th>
-                        <th>Пн</th>
-                        <th>Вт</th>
-                        <th>Ср</th>
-                        <th>Чт</th>
-                        <th>Пт</th>
-                        <th>Сб</th>
-                        <th>Вс</th>
-                    </tr>
-                    @foreach (var employee in Model.Employees)
-                    {
-                        <tr>
-                            <td class contenteditable ="true">@employee.FirstName @employee.LastName @employee.MiddleName</td>
-                            <td contenteditable ="true">@employee.Link</td>
-                            <td contenteditable ="true">@employee.Position</td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                            <td contenteditable="true"></td>
-                        </tr>
-                    }
-                </table>
-            </table>
-        </div>
+<ul id="tableList">
+    @foreach (var tableName in Model)
+    {
+        <li>
+            <a href="#" onclick="showTable('@tableName')">@tableName</a>
+        </li>
+    }
+</ul>
 
-        <div class="panel-container">
-            <button name="btn_create">Создать</button>
-            <button name="btn_delete">Удалить</button>
-            <button name="btn_save">Сохранить</button>
-        </div>
-        <div class="weeks-container">
-            <label class="weeks-label">08-01-2024</label>
-            <label class="weeks-label">15-01-2024</label>
-            <label class="weeks-label">22-01-2024</label>
-            <label class="weeks-label">29-01-2024</label>
-            <label class="weeks-label">@Model.WeekDate</label>
-        </div>
-    </div>
-</body>
+<div id="tableContent">
+    <!-- Сюда будет загружено содержимое таблицы -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/js/userItems.js"></script>
