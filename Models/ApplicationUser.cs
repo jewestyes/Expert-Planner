@@ -10,6 +10,7 @@ namespace ExpertPlanner.Models
         public string City { get; set; }
         public Position Position { get; set; }
         public UserRole Role { get; set; }
+        public string Link { get; set; }
     }
 
     public enum Position

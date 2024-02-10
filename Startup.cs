@@ -27,12 +27,14 @@ public class Startup
 
 
         services.AddRazorPages();
-
+        services.AddMvc();
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
-
         services.AddSession();
-
+        services.AddMvc().AddRazorPagesOptions(options =>
+        {
+            options.Conventions.AddPageRoute("/UserItems/UserIndex", "UserItems/UserIndex/{weekNumber}");
+        });
         services.AddAntiforgery(options =>
         {
 
@@ -43,9 +45,8 @@ public class Startup
         services.AddAuthentication("CookieAuthScheme")
             .AddCookie("CookieAuthScheme", options =>
     {
-        options.LoginPath = "/Authorization/Auth";
+        options.LoginPath = "/";
     });
-
         services.AddAuthorization(options =>
         {
             options.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -53,11 +54,11 @@ public class Startup
                 .Build();
         });
         services.AddIdentity<ApplicationUser, IdentityRole>(ConfigureIdentityOptions)
+
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddUserManager<UserManager<ApplicationUser>>()
     .AddUserStore<UserStore<ApplicationUser, IdentityRole, ApplicationDbContext, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityUserToken<string>, IdentityRoleClaim<string>>>();
-
     }
 
 
@@ -123,6 +124,7 @@ public class Startup
                 pattern: "{controller=Authorization}/{action=Auth}/{id?}");
             endpoints.MapRazorPages();
         });
+
 
         using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
         {

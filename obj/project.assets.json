@@ -3217,19 +3217,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jewestyes\\.nuget\\packages\\": {}
+    "C:\\Users\\JEWESTYES\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\Expert-Planner\\ExpertPlanner.csproj",
+      "projectUniqueName": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\ExpertPlanner.csproj",
       "projectName": "ExpertPlanner",
-      "projectPath": "D:\\Github\\Expert-Planner\\ExpertPlanner.csproj",
-      "packagesPath": "C:\\Users\\jewestyes\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\Expert-Planner\\obj\\",
+      "projectPath": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\ExpertPlanner.csproj",
+      "packagesPath": "C:\\Users\\JEWESTYES\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jewestyes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\JEWESTYES\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

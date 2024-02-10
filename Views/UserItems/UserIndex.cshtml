@@ -1,31 +1,62 @@
 @{
-	Layout = "_Layout";
+    Layout = "_Layout";
 }
+@model ExpertPlanner.Models.TableDataModel
 
-<div class="window-container">
-	<h2>User List</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/table_styles.css" asp-append-version="true">
+    <title>График работы</title>
+</head>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Отчество</th>
-            <th>Должность</th>
-            <th>Город</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.FirstName</td>
-                <td>@user.MiddleName</td>
-                <td>@user.LastName</td>
-                <td>@user.Position</td>
-                <td>@user.City</td>
-            </tr>
-        }
-    </tbody>
-</table>
-</div>
+<body class="no-nav-hover">
+    <div class="container">
+        <div class="table_container">
+            <table border="1">
+                <table border="1">
+                    <tr>
+                        <th>ФИО</th>
+                        <th>Ссылка</th>
+                        <th>Должность</th>
+                        <th>Пн</th>
+                        <th>Вт</th>
+                        <th>Ср</th>
+                        <th>Чт</th>
+                        <th>Пт</th>
+                        <th>Сб</th>
+                        <th>Вс</th>
+                    </tr>
+                    @foreach (var employee in Model.Employees)
+                    {
+                        <tr>
+                            <td class contenteditable ="true">@employee.FirstName @employee.LastName @employee.MiddleName</td>
+                            <td contenteditable ="true">@employee.Link</td>
+                            <td contenteditable ="true">@employee.Position</td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                    }
+                </table>
+            </table>
+        </div>
+
+        <div class="panel-container">
+            <button name="btn_create">Создать</button>
+            <button name="btn_delete">Удалить</button>
+            <button name="btn_save">Сохранить</button>
+        </div>
+        <div class="weeks-container">
+            <label class="weeks-label">08-01-2024</label>
+            <label class="weeks-label">15-01-2024</label>
+            <label class="weeks-label">22-01-2024</label>
+            <label class="weeks-label">29-01-2024</label>
+            <label class="weeks-label">@Model.WeekDate</label>
+        </div>
+    </div>
+</body>

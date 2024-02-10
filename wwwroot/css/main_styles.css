@@ -81,6 +81,9 @@ nav {
         width: 330px;
     }
 
+.no-nav-hover nav:hover {
+    width: 70px;
+}
         nav:hover a .label {
             opacity: 1;
         }

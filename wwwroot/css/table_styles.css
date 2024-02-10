@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table_container {
+    margin-top: 10px; 
+}
+
+.panel-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 72px;
+    margin-top: 10px;
+    height: auto;
+    width:100%;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 72px;
+}
+
+.weeks-container {
+    width: 100%;
+    height: auto;
+    margin-left: 72px;
+}
+
+.weeks-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    width: auto;
+    height: auto;
+    margin-left: 4px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    width: max-content; 
+    padding: 8px;
+    white-space: nowrap;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}

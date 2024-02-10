@@ -26,7 +26,7 @@
             <input type="password" id="password" name="Password" required placeholder="Пароль">
 
             <div class="remember-me">
-                <input type="checkbox" name="RememberMe" id="RememberMe">
+                @Html.CheckBoxFor(model => model.RememberMe, new { id = "RememberMe" })
                 <label for="RememberMe">Запомнить меня</label>
             </div>
 

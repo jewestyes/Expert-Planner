@@ -21,8 +21,19 @@ public class AuthorizationController : Controller
     }
     [AllowAnonymous]
     [HttpGet]
-    public IActionResult Auth()
+    public async Task<IActionResult> Auth()
     {
+        bool rememberMe = Request.Cookies["RememberMe"] == "True";
+
+        if (User.Identity.IsAuthenticated || rememberMe)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            TempData["UserFullName"] = $"{user.FirstName} {user.MiddleName}";
+
+            return RedirectToAction("Index", "Home");
+        }
+
         return View();
     }
 
@@ -49,8 +60,6 @@ public class AuthorizationController : Controller
             {
                 await _signInManager.SignInAsync(user, model.RememberMe);
 
-                _logger.LogInformation("CSRF token saved to session: {CSRFToken}", tokens.RequestToken);
-
                 TempData["UserFullName"] = $"{user.FirstName} {user.MiddleName}";
                 return RedirectToAction("Index", "Home");
             }
@@ -58,13 +67,14 @@ public class AuthorizationController : Controller
             ModelState.AddModelError(string.Empty, "Неверный логин или пароль");
         }
 
-        return View("Auth", model);
+        return RedirectToAction("Auth", "Authorization");
     }
 
     [HttpPost]
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
+        Response.Cookies.Delete("RememberMe");
         return RedirectToAction("Auth", "Authorization");
     }
 }
