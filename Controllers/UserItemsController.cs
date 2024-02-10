@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ExpertPlanner.Models;
 using Microsoft.EntityFrameworkCore;
-using ExpertPlanner.Controllers;
 
 public class UserItemsController : Controller
 {
     private readonly ApplicationDbContext _context;
     public List<TableDataModel> tables = new List<TableDataModel>();
-    private readonly ILogger<HomeController> _logger;
 
     public UserItemsController(ApplicationDbContext context)
     {

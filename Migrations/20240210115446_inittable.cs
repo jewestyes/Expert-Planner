@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ExpertPlanner.Migrations
 {
     /// <inheritdoc />
-    public partial class usersInit : Migration
+    public partial class inittable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

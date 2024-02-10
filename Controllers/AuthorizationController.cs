@@ -25,7 +25,7 @@ public class AuthorizationController : Controller
     {
         bool rememberMe = Request.Cookies["RememberMe"] == "True";
 
-        if (User.Identity.IsAuthenticated || rememberMe)
+        if (User.Identity.Name != null & ( User.Identity.IsAuthenticated || rememberMe) )
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 

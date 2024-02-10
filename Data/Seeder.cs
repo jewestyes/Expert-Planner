@@ -28,6 +28,7 @@ public static class DbSeeder
                 new ApplicationUser { UserName = "jewestyes",Link="@jewestyes", NormalizedUserName = "jewestyes", Email = "jewestyes@example.com", NormalizedEmail = "jewestyes@example.com", Role = UserRole.Admin, FirstName = "Кузин", MiddleName = "Артемий", LastName = "Вадимович", Position = Position.Middle, City = "Москва", PasswordHash = passwordHasher.HashPassword(null, "jewestyes") },
                 new ApplicationUser { UserName = "kurier_express",Link="@kurier_express", NormalizedUserName = "kurier_express", Email = "kurier_express@example.com", NormalizedEmail = "kurier_express@example.com", Role = UserRole.RegularUser, FirstName = "Белеза", MiddleName = "Никита", LastName = "Эдуардович", Position = Position.Middle, City = "Москва", PasswordHash = passwordHasher.HashPassword(null, "kurier_express") },
                 new ApplicationUser { UserName = "IVkulakov",Link="@IVkulakov", NormalizedUserName = "IVkulakov", Email = "IVkulakov@example.com", NormalizedEmail = "IVkulakov@example.com", Role = UserRole.RegularUser, FirstName = "Ваня", MiddleName = "Кулаков", LastName = "Андреевич", Position = Position.Middle, City = "Москва", PasswordHash = passwordHasher.HashPassword(null, "IVkulakov") }
+
         };
 
             foreach (var user in users)
