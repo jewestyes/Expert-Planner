@@ -1,28 +1,34 @@
-﻿@model List<ExpertPlanner.Models.DefaultTable>
+﻿@model List<DefaultTable>
 
-<h1>Details for Table</h1>
-
-<table>
+<table class="table">
     <thead>
         <tr>
-            <th>FirstName</th>
-            <th>MiddleName</th>
-            <th>LastName</th>
-            <th>Link</th>
-            <th>Position</th>
-            <!-- Добавьте заголовки для других столбцов по аналогии -->
+            <th>ФИО</th>
+            <th>Ссылка на ТГ</th>
+            <th>Должность</th>
+            <th>Пн</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+            <th>Вс</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.FirstName</td>
-                <td>@item.MiddleName</td>
-                <td>@item.LastName</td>
+                <td>@item.FirstName @item.MiddleName @item.LastName</td>
                 <td>@item.Link</td>
                 <td>@item.Position</td>
-                <!-- Добавьте другие свойства по аналогии -->
+                <td>@item.Monday</td>
+                <td>@item.Tuesday</td>
+                <td>@item.Wednesday</td>
+                <td>@item.Thursday</td>
+                <td>@item.Friday</td>
+                <td>@item.Saturday</td>
+                <td>@item.Sunday</td>
             </tr>
         }
     </tbody>

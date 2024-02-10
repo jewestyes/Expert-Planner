@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gAiRIKO4p78UeacYX1jn8buiMUaJwNBQvd7z5CGQAe4=",
+  "Hash": "LV3P4UqdOB2VaPiKRonpmp2X2enkxmomW8TU4c/E3Rc=",
   "Source": "ExpertPlanner",
   "BasePath": "_content/ExpertPlanner",
   "Mode": "Default",
@@ -376,6 +376,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\menu_logo_mini.png"
+    },
+    {
+      "Identity": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\utorrent_installer.exe",
+      "SourceId": "ExpertPlanner",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\",
+      "BasePath": "_content/ExpertPlanner",
+      "RelativePath": "images/utorrent_installer.exe",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\utorrent_installer.exe"
     },
     {
       "Identity": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\js\\main_scripts.js",

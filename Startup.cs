@@ -96,13 +96,11 @@ public class Startup
         app.UseSession();
         app.UseRouting();
         app.UseAntiforgery();
-
         app.UseAuthentication();
         app.UseAuthorization();
 
         ConfigureEndpoints(app);
     }
-
 
     private void ConfigureLogging(IServiceCollection services)
     {
@@ -121,7 +119,6 @@ public class Startup
         options.Password.RequireDigit = false;
         options.Password.RequireNonAlphanumeric = false;
     }
-
 
     private void ConfigureEndpoints(IApplicationBuilder app)
     {

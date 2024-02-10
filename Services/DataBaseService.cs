@@ -1,8 +1,5 @@
 ﻿using ExpertPlanner.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ExpertPlanner.Services
 {
@@ -18,7 +15,7 @@ namespace ExpertPlanner.Services
         public List<DefaultTable> GetDataFromTable(string tableName)
         {
             var tableColumns = _context.Model.FindEntityType(typeof(DefaultTable)).GetProperties().Select(x => x.Name).ToList();
-            var columnList = string.Join(", ", tableColumns.Select(c => $"\"{c}\"")); // Enclose column names in quotes
+            var columnList = string.Join(", ", tableColumns.Select(c => $"\"{c}\""));
             var query = new List<DefaultTable>();
 
             using (var command = _context.Database.GetDbConnection().CreateCommand())
@@ -50,7 +47,6 @@ namespace ExpertPlanner.Services
             return query;
         }
 
-
         public List<string> GetTableNames()
         {
             var tableNames = new List<string>();
@@ -70,5 +66,6 @@ namespace ExpertPlanner.Services
 
             return tableNames;
         }
+
     }
 }

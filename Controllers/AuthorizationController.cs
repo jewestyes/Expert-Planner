@@ -47,6 +47,7 @@ public class AuthorizationController : Controller
 
             var cookieOptions = new CookieOptions
             {
+                Secure = true,
                 Expires = model.RememberMe ? DateTime.Now.AddDays(30) : DateTime.Now.AddDays(1),
                 HttpOnly = true
             };

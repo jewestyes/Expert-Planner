@@ -22,6 +22,8 @@ public class UserItemsController : Controller
         var data = _databaseService.GetDataFromTable(tableName);
         return PartialView("~/Views/UserItems/_TableDetails.cshtml", data);
     }
+
+
     private string GetWeekNumber(DateTime date)
     {
         return $"{date.AddDays(-(int)date.DayOfWeek + (int)DayOfWeek.Monday):dd-MM-yyyy}";

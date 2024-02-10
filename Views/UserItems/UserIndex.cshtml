@@ -1,11 +1,16 @@
 @model List<string>
 
-<h1>Tables starting with "Grafik":</h1>
+@{
+    Layout = "_Layout";
+}
+
+
+<body class=" no-nav-hover">
 
 <ul id="tableList">
     @foreach (var tableName in Model)
     {
-        <li>
+        <li class="list-tables">
             <a href="#" onclick="showTable('@tableName')">@tableName</a>
         </li>
     }
@@ -14,6 +19,8 @@
 <div id="tableContent">
     <!-- —юда будет загружено содержимое таблицы -->
 </div>
+</body>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="~/js/userItems.js"></script>

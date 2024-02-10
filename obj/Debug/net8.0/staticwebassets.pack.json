@@ -73,6 +73,10 @@
       "PackagePath": "staticwebassets\\images\\menu_logo_mini.png"
     },
     {
+      "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\images\\utorrent_installer.exe",
+      "PackagePath": "staticwebassets\\images\\utorrent_installer.exe"
+    },
+    {
       "Id": "C:\\Users\\JEWESTYES\\source\\repos\\ExpertPlanner\\wwwroot\\js\\main_scripts.js",
       "PackagePath": "staticwebassets\\js\\main_scripts.js"
     },
