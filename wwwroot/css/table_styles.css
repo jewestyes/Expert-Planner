@@ -43,6 +43,9 @@ th, td {
     white-space: nowrap;
 }
 
+.save-btn{
+    margin-left: 72px;
+}
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }

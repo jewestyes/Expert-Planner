@@ -20,6 +20,7 @@ namespace ExpertPlanner.Models
 
             modelBuilder.Entity<UserItemViewModel>().HasNoKey();
             modelBuilder.Entity<ApplicationUser>().ToTable("ApplicationUsers");
+            modelBuilder.Entity<DefaultTable>().HasKey(e => e.Id);
         }
     }
 }

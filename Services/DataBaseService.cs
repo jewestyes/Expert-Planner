@@ -1,5 +1,9 @@
 ﻿using ExpertPlanner.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ExpertPlanner.Services
 {
@@ -12,7 +16,7 @@ namespace ExpertPlanner.Services
             _context = context;
         }
 
-        public List<DefaultTable> GetDataFromTable(string tableName)
+        public async Task<List<DefaultTable>> GetDataFromTableAsync(string tableName)
         {
             var tableColumns = _context.Model.FindEntityType(typeof(DefaultTable)).GetProperties().Select(x => x.Name).ToList();
             var columnList = string.Join(", ", tableColumns.Select(c => $"\"{c}\""));
@@ -20,13 +24,13 @@ namespace ExpertPlanner.Services
 
             using (var command = _context.Database.GetDbConnection().CreateCommand())
             {
+                await _context.Database.OpenConnectionAsync();
+
                 command.CommandText = $"SELECT {columnList} FROM \"{tableName}\"";
 
-                _context.Database.OpenConnection();
-
-                using (var reader = command.ExecuteReader())
+                using (var reader = await command.ExecuteReaderAsync())
                 {
-                    while (reader.Read())
+                    while (await reader.ReadAsync())
                     {
                         var defaultTable = new DefaultTable();
                         for (int i = 0; i < reader.FieldCount; i++)
@@ -47,6 +51,15 @@ namespace ExpertPlanner.Services
             return query;
         }
 
+        public async Task UpdateDataInTableAsync(string tableName, List<DefaultTable> updatedData)
+        {
+            foreach (var item in updatedData)
+            {
+                var sql = $"UPDATE \"{tableName}\" SET LastName = '{item.LastName}', FirstName = '{item.FirstName}', MiddleName = '{item.MiddleName}',  Link = '{item.Link}', Position = '{item.Position}', Monday = '{item.Monday}', Tuesday = '{item.Tuesday}', Wednesday = '{item.Wednesday}', Thursday = '{item.Thursday}', Friday = '{item.Friday}', Saturday = '{item.Saturday}', Sunday = '{item.Sunday}' WHERE Id = {item.Id}";
+                await _context.Database.ExecuteSqlRawAsync(sql);
+            }
+        }
+
         public List<string> GetTableNames()
         {
             var tableNames = new List<string>();
@@ -55,7 +68,7 @@ namespace ExpertPlanner.Services
             connection.Open();
 
             var command = connection.CreateCommand();
-            command.CommandText = "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'default%'";
+            command.CommandText = "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'Grafik_%'";
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -66,6 +79,5 @@ namespace ExpertPlanner.Services
 
             return tableNames;
         }
-
     }
 }

@@ -1,35 +1,51 @@
 ﻿@model List<DefaultTable>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>График планирования</title>
+    <link rel="stylesheet" href="~/css/table_styles.css" asp-append-version="true" />
+</head>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>ФИО</th>
-            <th>Ссылка на ТГ</th>
-            <th>Должность</th>
-            <th>Пн</th>
-            <th>Вт</th>
-            <th>Ср</th>
-            <th>Чт</th>
-            <th>Пт</th>
-            <th>Сб</th>
-            <th>Вс</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<form asp-controller="UserItems" asp-action="SaveTable" asp-route-tableName="@ViewBag.TableName" method="post">
+    <input type="hidden" name="tableName" value="@ViewBag.TableName" />
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item.FirstName @item.MiddleName @item.LastName</td>
-                <td>@item.Link</td>
-                <td>@item.Position</td>
-                <td>@item.Monday</td>
-                <td>@item.Tuesday</td>
-                <td>@item.Wednesday</td>
-                <td>@item.Thursday</td>
-                <td>@item.Friday</td>
-                <td>@item.Saturday</td>
-                <td>@item.Sunday</td>
+                <th>ФИО</th>
+                <th>Ссылка на ТГ</th>
+                <th>Должность</th>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Вс</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <input type="text" asp-for="@Model[i].LastName" placeholder="Фамилия" />
+                        <input type="text" asp-for="@Model[i].FirstName" placeholder="Имя" />
+                        <input type="text" asp-for="@Model[i].MiddleName" placeholder="Отчество" />
+                        <input type="hidden" asp-for="@Model[i].Id" />
+                    </td>
+                    <td><input type="text" asp-for="@Model[i].Link" /></td>
+                    <td><input type="text" asp-for="@Model[i].Position" /></td>
+                    <td><input type="text" asp-for="@Model[i].Monday" /></td>
+                    <td><input type="text" asp-for="@Model[i].Tuesday" /></td>
+                    <td><input type="text" asp-for="@Model[i].Wednesday" /></td>
+                    <td><input type="text" asp-for="@Model[i].Thursday" /></td>
+                    <td><input type="text" asp-for="@Model[i].Friday" /></td>
+                    <td><input type="text" asp-for="@Model[i].Saturday" /></td>
+                    <td><input type="text" asp-for="@Model[i].Sunday" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button class="save-btn" type="submit">Сохранить</button>
+</form>
+
