@@ -8,22 +8,22 @@
 	<link rel="stylesheet" href="~/css/table_styles.css" asp-append-version="true" />
 </head>
 
-<body class="no-nav-hover">
+<body>
 	<div id="tableContent">
 		<!-- —юда будет загружено содержимое таблицы -->
 	</div>
 
-	<div id="tableListContainer">
-		<input type="hidden" name="tableName" value="@ViewBag.TableName" />
-		<ul id="tableList">
-			@foreach (var tableName in Model)
-			{
-				<li class="list-tables">
-					<a href="#" onclick="showTable('@tableName')">@tableName</a>
-				</li>
-			}
-		</ul>
-	</div>
+    <div class="table-names" id="tableListContainer">
+        <input type="hidden" name="tableName" value="@ViewBag.TableName" />
+        <ul id="tableList">
+            @foreach (var tableName in Model)
+            {
+                <li class="list-tables">
+                    <a href="#" onclick="showTable('@tableName')">@tableName</a>
+                </li>
+            }
+        </ul>
+    </div>
 
 </body>
 

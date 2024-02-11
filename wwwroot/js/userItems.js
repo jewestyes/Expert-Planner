@@ -4,7 +4,7 @@ function showTable(tableName) {
         type: 'GET',
         success: function (data) {
             $('#tableContent').html(data);
-            $('.save-btn').show(); // Показать кнопку после успешной загрузки данных
+            $('.save-btn').show();
         },
         error: function () {
             alert('Error loading table data.');
@@ -13,10 +13,9 @@ function showTable(tableName) {
 }
 
 window.onload = function () {
-    $('.save-btn').hide(); // Скрыть кнопку при загрузке страницы
+    $('.save-btn').hide(); 
 
     $('#tableList a').click(function () {
-        // Обработчик клика на ссылку в списке таблиц
-        $('.save-btn').show(); // Показать кнопку при клике на ссылку
+        $('.save-btn').show(); 
     });
 };
