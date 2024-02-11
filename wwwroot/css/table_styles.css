@@ -1,57 +1,74 @@
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
-.table_container {
-    margin-top: 10px; 
-}
-
-.panel-container {
-    display: flex;
-    flex-direction: row;
-    margin-left: 72px;
-    margin-top: 10px;
-    height: auto;
-    width:100%;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-left: 72px;
-}
-
-.weeks-container {
-    width: 100%;
-    height: auto;
-    margin-left: 72px;
-}
-
-.weeks-label {
-    font-family: 'Roboto', sans-serif;
+.table th {
     font-weight: bold;
-    width: auto;
-    height: auto;
-    margin-left: 4px;
-}
-
-th, td {
-    border: 1px solid #dddddd;
     text-align: center;
-    width: max-content; 
-    padding: 8px;
-    white-space: nowrap;
+    padding: 12px;
 }
 
-.save-btn{
-    margin-left: 72px;
-}
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.input-container {
+    display: flex;
 }
 
-th {
+    .input-container input[type="text"] {
+        flex: 1;
+        display: inline-block;
+        width: auto; 
+        padding: 5px; 
+        margin: 1px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+.table tbody td {
+    padding-bottom: 10px; /* ¬ертикальный отступ между строками */
+}
+
+.save-btn {
+    height: 30px;
+    margin-left: 20px;
     background-color: #4CAF50;
     color: white;
+    border: none;
+    padding: 8px 12px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
 }
+
+#tableListContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.table-container {
+    margin-left: 72px;
+}
+
+#tableList {
+    height: 30px;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list-tables {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #4CAF50;
+}
+
+    .list-tables a {
+        color: white;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+    }
+
+        .list-tables a:hover {
+            color: #333;
+        }

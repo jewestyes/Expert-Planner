@@ -29,12 +29,12 @@ public class UserItemsController : Controller
     [HttpPost]
     public async Task<IActionResult> SaveTable(string tableName, List<DefaultTable> model)
     {
+        var tableNames = _databaseService.GetTableNames();
         if (ModelState.IsValid)
         {
-            var tableNames = _databaseService.GetTableNames();
-            return View("UserIndex", tableNames);
+            await _databaseService.UpdateDataInTableAsync(tableName, model);
         }
-        return View("Details", model);
+        return View("UserIndex", tableNames);
     }
 
     private string GetWeekNumber(DateTime date)

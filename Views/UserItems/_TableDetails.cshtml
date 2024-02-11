@@ -6,46 +6,52 @@
     <link rel="stylesheet" href="~/css/table_styles.css" asp-append-version="true" />
 </head>
 
-<form asp-controller="UserItems" asp-action="SaveTable" asp-route-tableName="@ViewBag.TableName" method="post">
+<div class="table-container">
+    <form asp-controller="UserItems" asp-action="SaveTable" asp-route-tableName="@ViewBag.TableName" method="post">
     <input type="hidden" name="tableName" value="@ViewBag.TableName" />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ФИО</th>
-                <th>Ссылка на ТГ</th>
-                <th>Должность</th>
-                <th>Пн</th>
-                <th>Вт</th>
-                <th>Ср</th>
-                <th>Чт</th>
-                <th>Пт</th>
-                <th>Сб</th>
-                <th>Вс</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (var i = 0; i < Model.Count; i++)
-            {
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        <input type="text" asp-for="@Model[i].LastName" placeholder="Фамилия" />
-                        <input type="text" asp-for="@Model[i].FirstName" placeholder="Имя" />
-                        <input type="text" asp-for="@Model[i].MiddleName" placeholder="Отчество" />
-                        <input type="hidden" asp-for="@Model[i].Id" />
-                    </td>
-                    <td><input type="text" asp-for="@Model[i].Link" /></td>
-                    <td><input type="text" asp-for="@Model[i].Position" /></td>
-                    <td><input type="text" asp-for="@Model[i].Monday" /></td>
-                    <td><input type="text" asp-for="@Model[i].Tuesday" /></td>
-                    <td><input type="text" asp-for="@Model[i].Wednesday" /></td>
-                    <td><input type="text" asp-for="@Model[i].Thursday" /></td>
-                    <td><input type="text" asp-for="@Model[i].Friday" /></td>
-                    <td><input type="text" asp-for="@Model[i].Saturday" /></td>
-                    <td><input type="text" asp-for="@Model[i].Sunday" /></td>
+                    <th>ФИО</th>
+                    <th>Ссылка на ТГ</th>
+                    <th>Должность</th>
+                    <th>Пн</th>
+                    <th>Вт</th>
+                    <th>Ср</th>
+                    <th>Чт</th>
+                    <th>Пт</th>
+                    <th>Сб</th>
+                    <th>Вс</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                        <tr>
+                            <td>
+                                <div class="input-container">
+                                    <input type="text" asp-for="@Model[i].LastName" placeholder="Фамилия" />
+                                    <input type="text" asp-for="@Model[i].FirstName" placeholder="Имя" />
+                                    <input type="text" asp-for="@Model[i].MiddleName" placeholder="Отчество" />
+                                    <input type="hidden" asp-for="@Model[i].Id" />
+                                </div>
+                            </td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Link" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Position" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Monday" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Tuesday" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Wednesday" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Thursday" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Friday" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Saturday" /></div></td>
+                            <td><div class="input-container"><input type="text" asp-for="@Model[i].Sunday" /></div></td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
     <button class="save-btn" type="submit">Сохранить</button>
 </form>
+</div>
 
