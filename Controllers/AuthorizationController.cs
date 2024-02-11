@@ -33,6 +33,9 @@ public class AuthorizationController : Controller
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
+            var fullName = $"{user.FirstName} {user.MiddleName}";
+            _httpContextAccessor.HttpContext.Session.SetString("UserFullName", fullName);
+
             return RedirectToAction("Index", "Home");
         }
 
