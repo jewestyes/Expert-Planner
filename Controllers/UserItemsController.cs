@@ -31,8 +31,8 @@ public class UserItemsController : Controller
     {
         if (ModelState.IsValid)
         {
-            await _databaseService.UpdateDataInTableAsync(tableName, model);
-            return RedirectToAction("Details", new { tableName });
+            var tableNames = _databaseService.GetTableNames();
+            return View("UserIndex", tableNames);
         }
         return View("Details", model);
     }

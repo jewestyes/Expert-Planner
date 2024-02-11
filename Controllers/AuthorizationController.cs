@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ExpertPlanner.Models;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 [AutoValidateAntiforgeryToken]
 public class AuthorizationController : Controller
@@ -11,13 +12,16 @@ public class AuthorizationController : Controller
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly ILogger<AuthorizationController> _logger;
     private readonly IAntiforgery _antiforgery;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public AuthorizationController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<AuthorizationController> logger, IAntiforgery antiforgery)
+    public AuthorizationController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+        ILogger<AuthorizationController> logger, IAntiforgery antiforgery, IHttpContextAccessor httpContextAccess)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _logger = logger;
         _antiforgery = antiforgery;
+        _httpContextAccessor = httpContextAccess;
     }
     [AllowAnonymous]
     [HttpGet]
@@ -28,8 +32,6 @@ public class AuthorizationController : Controller
         if (User.Identity.Name != null & ( User.Identity.IsAuthenticated || rememberMe) )
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            TempData["UserFullName"] = $"{user.FirstName} {user.MiddleName}";
 
             return RedirectToAction("Index", "Home");
         }
@@ -61,7 +63,8 @@ public class AuthorizationController : Controller
             {
                 await _signInManager.SignInAsync(user, model.RememberMe);
 
-                TempData["UserFullName"] = $"{user.FirstName} {user.MiddleName}";
+                var fullName = $"{user.FirstName} {user.MiddleName}";
+                _httpContextAccessor.HttpContext.Session.SetString("UserFullName", fullName);
                 return RedirectToAction("Index", "Home");
             }
 

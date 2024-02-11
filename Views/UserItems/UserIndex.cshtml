@@ -4,23 +4,22 @@
     Layout = "_Layout";
 }
 
+<body class="no-nav-hover">
+    <div id="tableContent">
+        <!-- —юда будет загружено содержимое таблицы -->
+    </div>
 
-<body class=" no-nav-hover">
-
-<ul id="tableList">
-    @foreach (var tableName in Model)
-    {
-        <li class="list-tables">
-            <a href="#" onclick="showTable('@tableName')">@tableName</a>
-        </li>
-    }
-</ul>
-
-<div id="tableContent">
-    <!-- —юда будет загружено содержимое таблицы -->
-</div>
+    <div id="tableListContainer">
+        <ul id="tableList">
+            @foreach (var tableName in Model)
+            {
+                <li class="list-tables">
+                    <a href="#" onclick="showTable('@tableName')">@tableName</a>
+                </li>
+            }
+        </ul>
+    </div>
 </body>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="~/js/userItems.js"></script>

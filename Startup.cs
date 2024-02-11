@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Session;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,16 +27,19 @@ public class Startup
     {
         ConfigureLogging(services);
 
-        services.AddRazorPages();
-        services.AddMvc();
+        services.AddHttpContextAccessor();
         services.AddScoped<DatabaseService>();
+
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
+
         services.AddSession();
+
         services.AddMvc().AddRazorPagesOptions(options =>
         {
             options.Conventions.AddPageRoute("/UserItems/UserIndex", "UserItems/UserIndex/{weekNumber}");
         });
+
         services.AddAntiforgery(options =>
         {
 
@@ -43,29 +47,27 @@ public class Startup
             options.Cookie.Name = "Z-XSRF-COOKIE";
             options.FormFieldName = "Y-XSRF-TOKEN";
         });
+
         services.AddAuthentication("CookieAuthScheme")
-            .AddCookie("CookieAuthScheme", options =>
-    {
-        options.LoginPath = "/";
-    });
+            .AddCookie("CookieAuthScheme", options => { options.LoginPath = "/"; });
+
         services.AddAuthorization(options =>
         {
             options.FallbackPolicy = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
         });
-        services.AddIdentity<ApplicationUser, IdentityRole>(ConfigureIdentityOptions)
 
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders()
-    .AddUserManager<UserManager<ApplicationUser>>()
-    .AddUserStore<UserStore
+        services.AddIdentity<ApplicationUser, IdentityRole>(ConfigureIdentityOptions)
+               .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders()
+                .AddUserManager<UserManager<ApplicationUser>>()
+                .AddUserStore<UserStore
     <ApplicationUser, IdentityRole,
     ApplicationDbContext, string,
     IdentityUserClaim<string>, IdentityUserRole<string>,
     IdentityUserLogin<string>, IdentityUserToken<string>,
     IdentityRoleClaim<string>>>();
-        
     }
 
 
@@ -90,7 +92,6 @@ public class Startup
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
         }
-
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseSession();

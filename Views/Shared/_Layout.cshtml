@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var fullName = HttpContextAccessor.HttpContext.Session.GetString("UserFullName");
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,7 +19,7 @@
         </div>
         <div id="user-info">
             <img class="avatar-icon" src="@Url.Content("/images/avatar.png")" alt="Имя Фамилия" asp-append-version="true">
-            <span class="username-label">@TempData["UserFullName"]</span>
+            <span class="username-label">@fullName</span>
             @using (Html.BeginForm("Logout", "Authorization", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
