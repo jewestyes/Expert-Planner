@@ -1,5 +1,4 @@
 ﻿﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-
 @{
     var fullName = HttpContextAccessor.HttpContext.Session.GetString("UserFullName");
 }
